@@ -26,11 +26,11 @@ if (!MODEL_NAME) {
 
 // init global variables
 const MAX_LENGTH = 399
-let file_context = "You are a helpful Twitch Chatbot."
+let file_context = "Вы полезный чат-бот Twitch."
 let last_user_message = ""
 
 const messages = [
-    {role: "system", content: "You are a helpful Twitch Chatbot."}
+    {role: "system", content: "Вы полезный чат-бот Twitch."}
 ];
 
 console.log("GPT_MODE is " + GPT_MODE)
@@ -85,7 +85,7 @@ app.get('/gpt/:text', async (req, res) => {
         //Check if message history is exceeded
         console.log("Conversations in History: " + ((messages.length / 2) -1) + "/" + process.env.HISTORY_LENGTH)
         if(messages.length > ((process.env.HISTORY_LENGTH * 2) + 1)) {
-            console.log('Message amount in history exceeded. Removing oldest user and agent messages.')
+            console.log('Превышено количество сообщений в истории. Удаление самых старых сообщений пользователя и агента.')
             messages.splice(1,2)
         }
 
